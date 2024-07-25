@@ -5,8 +5,8 @@ Check the Status:
 git status
 
 Add Changes to Staging Area: 
-git add <filename>   # Add specific file
-git add .            # Add all changes
+git add <filename>    # Add specific file
+git add .             # Add all changes
 
 Commit Changes:
 git commit -m "Your commit message"
