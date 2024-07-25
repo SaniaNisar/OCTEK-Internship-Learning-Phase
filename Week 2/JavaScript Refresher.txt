@@ -1,0 +1,17 @@
+JavaScript 
+- in web browsers(a part of it) only back in 90's
+- on computers (server side) Node.js
+- on mobile devices (via embedded devices) React Native
+
+<script type="text/javascript" src="script.js" *></script> 
+*:
+1) defer : the js code will run after the html doc has been read and parsed
+2) type="module" : helps treating your file as a javascript file and allows importing/exporting multiple files to that file
+
+
+spread operator: ...
+
+for dynamic content:
+{call your dynamic function here}
+
+
