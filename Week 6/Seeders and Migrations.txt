@@ -1,0 +1,87 @@
+To perform migrations and seeding with Sequelize:
+1) npm install --save-dev sequelize-cli
+2) npm install sequelize mysql2
+3) npx sequelize-cli init
+4) Configure Your Database:
+   Update config/config.json (or config/config.js if you prefer JavaScript) with your database credentials
+5) Create a Migration
+   Generate a migration file for creating a new table:
+   npx sequelize-cli migration:generate --name create-jobs
+   
+   Edit that migration file in migrations/ to define the schema:
+   'use strict';
+
+module.exports = {
+  async up(queryInterface, Sequelize) {
+    await queryInterface.createTable('Jobs', {
+      id: {
+        type: Sequelize.INTEGER,
+        autoIncrement: true,
+        primaryKey: true,
+        allowNull: false
+      },
+      firstName: {
+        type: Sequelize.STRING,
+        allowNull: false
+      },
+      age: {
+        type: Sequelize.INTEGER,
+        allowNull: false
+      },
+      createdAt: {
+        type: Sequelize.DATE,
+        allowNull: false
+      },
+      updatedAt: {
+        type: Sequelize.DATE,
+        allowNull: false
+      }
+    });
+  },
+
+  async down(queryInterface, Sequelize) {
+    await queryInterface.dropTable('Jobs');
+  }
+};
+
+6)  Run Migrations
+    Execute migrations to create or update the database schema:
+    npx sequelize-cli db:migrate
+
+7)  Create a Seeder
+    Generate a seeder file to populate the database:
+    npx sequelize-cli seed:generate --name demo-jobs
+
+    Edit the generated seeder file in seeders/:
+    'use strict';
+
+module.exports = {
+  async up(queryInterface, Sequelize) {
+    await queryInterface.bulkInsert('Jobs', [{
+      firstName: 'John',
+      age: 30,
+      createdAt: new Date(),
+      updatedAt: new Date()
+    }, {
+      firstName: 'Jane',
+      age: 25,
+      createdAt: new Date(),
+      updatedAt: new Date()
+    }]);
+  },
+
+  async down(queryInterface, Sequelize) {
+    await queryInterface.bulkDelete('Jobs', null, {});
+  }
+};
+
+8)  Run Seeders
+    Execute the seeders to populate the database:
+    npx sequelize-cli db:seed:all
+
+9)  Rollback Migrations and Seeders
+    Undo Migrations:
+    npx sequelize-cli db:migrate:undo
+
+    Undo seeders:
+    npx sequelize-cli db:seed:undo:all
