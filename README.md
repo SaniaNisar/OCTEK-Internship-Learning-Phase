@@ -8,5 +8,5 @@ This is a repository for all my internship stuff!
 - Week 5: Express and Node JS
 - Week 6: Object Relational Mapping
 - Week 7: Redis
-- Week 8: Material-UI
+- Week 8: Material-UI and TypeScript
 - Week 9: Docker - Containerization
