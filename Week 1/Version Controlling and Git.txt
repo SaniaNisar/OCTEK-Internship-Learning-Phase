@@ -125,4 +125,32 @@ Pulling the Latest Changes:
    git pull origin main
 
 
+Main Things to do:
+First Remove the git repository
+cd project
+Remove-Item -Recurse -Force .git
+Return to Parent Directory cd ..
+if sub module
+git rm --cached octek_project
+git add octek_project
+git commit -m "Removed submodule reference and re-added octek_project as a regular directory"
+git push origin <branch_name>
+---------------------------------------------
+Adding feature branch from another folder and pushing the code in that branch
+# Clone the repository (if not already cloned)
+git clone Git_Hub_Https_Url
+cd TestingRepo1
+# Switch to the development branch
+git checkout development
+# Pull the latest changes from development
+git pull origin development
+# Create and switch to branchname
+git checkout -b branchname development
+# Stage all changes
+git add .
+# Commit the changes
+git commit -m "Add feature for branchname"
+# Push to branchname
+git push origin branchname
+
 
