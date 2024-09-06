@@ -6,7 +6,7 @@ import {
 } from "../../../common/middlewares/index.js";
 
 const router = express.Router();
-
+// Swagger UI Code
 /**
  * @openapi
  * components:
